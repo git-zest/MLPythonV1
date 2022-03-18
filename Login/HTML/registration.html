@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <div>
+  <script src="controller.js"></script>
+    <script>
+    // Wait for window load
+    $(window).load(function() {
+      // Animate loader off screen
+      $("#loader").animate({
+        top: -200
+      }, 1500);
+    });
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-page" id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:6000;">
+  <div class="form">
+  <img src="image/Standard_Bank_Logo.png">
+   <div>
+    <label><br>CIB - One Stop Shop</br></label>
+    <form class="login-form" ng-controller="swifttranscontroller" >
+      <label><br>Registration</br></label>
+      <input type="text" placeholder="Username" ng-model="UsernameReg" required=true/>
+      <input type="password" placeholder="Password" ng-model="PasswordReg" required=true/>
+      <button ng-click="Regclicked()">Create</button>
+      <span ng-if="message === 'Pass'">User Added Successfully</span>
+      <span ng-if="message === 'Fail'">User Already Exist</span>
+      <p class="message">Registered? <a href="/">Login</a></p>
+    </form>
+  </div>
+  </div>
+</div>
+</body>
+</html>

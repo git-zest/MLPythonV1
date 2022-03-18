@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ML Form</title>
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/multiform.css">
+      <link href="https://fonts.googleapis.com/css?family=Montaga|Montserrat" rel="stylesheet">
+   </head>
+   <body>
+     <header class="navbar navbar-expand-md navbar-light">
+       <div class="container-xl"  >
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+           <img src="./static/overview.gif" alt="Tabler" class="navbar-brand-image">
+           ML Automation Model
+         </a>
+       </div>
+     </header>
+
+      <div class="row" ng-controller="formCtrl" ng-cloak>
+        <div class="topnav" id="myTopnav" >
+        <ul>
+          <li><a href="/" >ML Automation</a></li>
+          <li><a href="/ObjectsDB">Objects DB</a></li>
+        </ul>
+      </div>
+      <div ng-if="messageparameter=='Pass'"  style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: black; opacity: 0.5; z-index: 1000;">
+            <div class="loader">
+              <div class="circle one"></div>
+              <div class="circle two"></div>
+              <div class="circle three"></div>
+            </div>
+        </div>
+
+        <div class="animate-switch-container" ng-switch on="stage">
+         <div class="col-md-6 col-md-offset-3">
+            <div id="main_form" >
+               <ul id="p_bar">
+                  <li ng-class="active1">Screen Details</li>
+                  <li ng-class="active2">Add Files/URL</li>
+                  <li ng-class="active3">ML Setup</li>
+               </ul>
+               <fieldset class="f1" ng-switch-default>
+                  <h2 class="m_head">SCREEN DETAILS</h2>
+                  <h4 class="s_head">Screen name without space to store the Object values</h4>
+                  <div class="form-group">
+                     <input type="text" class="form-control s_name" ng-model="screenname" placeholder="Screen Name"/>
+                  </div>
+                  <div class="form-group">
+                     <span style="color:blue;">Or</span>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="form-control s_name" ng-model="existscreenname" placeholder="Existing Screen Name"/>
+                  </div>
+                  <div class="form-group">
+                     <span ng-if="message1 === 'Fail'" style="color:blue;">Please enter the valid DB name</span>
+                  </div>
+
+
+                  <div class="form-group" >
+                     <button class="btn btn-primary btn-lg next1" ng-click="next('stage1')">Next</button>
+                  </div>
+               </fieldset>
+               <fieldset class="f2" ng-switch-when="stage1">
+                  <h2 class="m_head">ADD URL / FILES</h2>
+                  <h4 class="s_head" ></h4>
+                  <div class="form-group">
+                     <input type="text" class="form-control" id="url" ng-model="s_url" placeholder="URL">
+                  </div>
+                  <div class="form-group">
+                     <span style="color:blue;">Or</span>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="form-control" id="giturl" ng-model="s_giturl" placeholder="GIT URL">
+                  </div>
+                  <div class="form-group" >
+                     <input type="checkbox"  name="mlinput" ng-model="mvnpgt" placeholder="mvnpgt">
+                     <span>MAVEN</span >
+                     <span>    </span >
+                     <input  type="checkbox" name="mlbutton" ng-model="rbtpgt" placeholder="rbtpgt">
+                     <span >ROBOT</span>
+                     <button class="btn btn-primary btn-lg previous1" ng-click="executescript()">Execute Script</button>
+                  </div >
+                  <div class="form-group">
+                    <span ng-if="message2 === 'Fail'" style="color:blue;">Please enter the valid URL</span>
+                  </div>
+                  <div class="form-group">
+                     <button class="btn btn-primary btn-lg previous1" ng-click="back('')">Previous</button>
+                     <button class="btn btn-primary btn-lg next2" ng-click="next('stage3')">Next</button>
+                  </div>
+               </fieldset>
+               <fieldset class="f3" ng-switch-when="stage3">
+                  <h2 class="m_head" >ML SETUP</h2>
+                  <h4 class="s_head"  >Select the value for the ML Model</h4>
+                  <div class="form-group" >
+                     <input type="checkbox"  name="mlinput" ng-model="mlinput" placeholder="mlinput">
+                     <span>INPUT</span >
+                     <span>    </span >
+                     <input  type="checkbox" name="mlbutton" ng-model="mlbutton" placeholder="mlbutton">
+                     <span >BUTTON</span>
+                    <span>    </span >
+                     <input  type="checkbox" name="mlscript" ng-model="mlscript" placeholder="mlscript">
+                     <span>SCRIPT</span >
+                  </div >
+                  <div class="form-group">
+                     <p id="notify3" style="color:blue;"></p>
+                  </div >
+                  <div class="form-group">
+                     <button class="btn btn-primary btn-lg previous2" ng-click="back('stage1')">Previous</button>
+                     <button class="btn btn-primary btn-lg submit" ng-click="MLsubmit()">Submit</button>
+                  </div>
+               </fieldset>
+            </div >
+         </div>
+      </div >
+    </div>
+   </body>
+</html>

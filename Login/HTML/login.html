@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <div >
+  <meta charset="UTF-8">
+  <title>Login</title>
+      <script src="controller.js"></script>
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script> 
+</head>
+<title> CIB Tools </title>
+<div  >
+<body class="login">
+  <div class="login-page" id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:6000;">
+  <div class="form" >
+  <img src="image/Standard_Bank_Logo.png">
+   <div>
+    <label><br>VBM - Business Verification</br></label>
+    <form class="login-form" ng-controller="swifttranscontroller" >
+      <div class="loader" ng-if="loading">
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+      </div>
+      <label><br>Login</br></label>
+      <span >Business Readiness</span>
+      <input type="password" placeholder="Password" ng-model="Password" required=true/>
+      <button ng-click="clicked()">Login </button>
+      <span ng-if="message === 'Fail'">Please Check the Username and Password</span>
+    </form>
+  </div>
+  </div >
+</div>
+</body>
+</html>

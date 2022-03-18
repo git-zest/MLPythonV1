@@ -1,0 +1,51 @@
+<html>
+<!-- top navigation CSS -->
+<head>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animations.css">
+		<link rel="stylesheet" href="css/topnav.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+		<link href="css/animations.css" rel="stylesheet" media="screen"/>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+</head>
+<body >
+<td style="left:10px;top:10px;">
+<title> CIB Tools </title>
+	<div  ng-controller="swiftmsgcontroller">
+		<div class="loader" ng-if="loading">
+			<div class="circle one"></div>
+			<div class="circle two"></div>
+			<div class="circle three"></div>
+		</div>
+	<!--<h1 align = "center"> CIB Tools </h1>-->
+ 	<h1 align = "center"> CIB - One Stop Shop </h1>
+
+	<div class="topnav" id="myTopnav" >
+	<ul>
+	  <li><a href="/SwiftMessageSystem" >Swift Message System</a></li>
+	  <li><a href="/Transaction">Transaction</a></li>
+		<li><a href="/Jiraupload">Jira Uploder</a></li>
+		<li><a href="/Testdata">Test data</a></li>
+		<li><a href="/Livereporting">Live Reporting</a></li>
+		<li><a href="/Batchfile">Batch file</a></li>
+		<li><a href="/UserMgt">VBM - User Management</a></li>
+		<li><a href="/Contact">Contact</a></li>
+	 </ul>
+	 <ul class="innercomments">
+	  <li class="newline"><a  href="/Addbatch">Add Batch</a></li>
+	  <li class="newline"><a  href="">Search/Modify Batch</a></li>
+	  <li class="newline"><a  href="">View Test Scenario</a></li>
+	  <li class="newline"><a  href="">View Batch</a></li>
+	</ul>
+	 </div>
+	 <button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+
+	 <button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+	<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+	</div>
+ </div>
+</body>
+</html>

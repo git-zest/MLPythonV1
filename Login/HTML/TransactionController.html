@@ -1,0 +1,93 @@
+<html>
+<!-- top navigation CSS -->
+
+<head>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animations.css">
+		<link rel="stylesheet" href="css/topnav.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+		<link href="css/animations.css" rel="stylesheet" media="screen"/>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+	    <style>
+			.tooltip {
+			    position: relative;
+			    display: inline-block;
+			    border-bottom: 1px dotted black;
+			}
+
+			.tooltip .tooltiptext {
+			    visibility: hidden;
+			    width: 120px;
+			    background-color: black;
+			    color: #fff;
+			    text-align: center;
+			    border-radius: 6px;
+			    padding: 5px 0;
+
+			    /* Position the tooltip */
+			    position: absolute;
+			    z-index: 1;
+			}
+
+			.tooltip:hover .tooltiptext {
+			    visibility: visible;
+			}
+		</style>
+</head>
+<body >
+<td style="left:10px;top:10px;">
+<title> CIB Tools </title>
+	<div  ng-controller="swifttranscontroller">
+		<div class="loader" ng-if="loading">
+			<div class="circle one"></div>
+			<div class="circle two"></div>
+			<div class="circle three"></div>
+		</div>
+	<!--<h1 align = "center"> CIB Tools </h1>-->
+ 	<h1 align = "center"> CIB - One Stop Shop </h1>
+
+
+	<div class="topnav" id="myTopnav" >
+	<ul>
+		<li><a href="/SwiftMessageSystem" >Swift Message System</a></li>
+	  <li><a href="/Transaction">Transaction</a></li>
+		<li><a href="/Jiraupload">Jira Uploder</a></li>
+		<li><a href="/Testdata">Test data</a></li>
+		<li><a href="/Livereporting">Live Reporting</a></li>
+		<li><a href="/Batchfile">Batch file</a></li>
+		<li><a href="/Contact">Contact</a></li>
+	 </ul>
+	 </div>
+<button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+	<td>
+		<tr>
+			<input name="Reference number"  placeholder="Reference number" ng-model="RefNum" style="position:relative;left:350px;top:30px;" required=true/>
+			<input name="Posting Date"  placeholder="Posting Date" ng-model="PostingDate" style="position:relative;left:350px;top:30px;" required=False/>
+		</tr>
+	</td>
+	<button type="button" class="btn btn-primary" ng-click="searchfunction()" style="position:relative;left:0px;top:70px;">Search</button>
+	<button type="button" class="btn btn-primary" ng-click="Cleardata()" style="position:relative;left:0px;top:70px;">Clear</button>
+
+	<table ng-if="Messagetable=='Searchtable'" style="position:relative;left:10px;top:100px;" class="table table-Acct">
+			<tr style="box-shadow: transparent;color:blue">
+				<th>#</th>
+				<th>ReferenceNumber</th>
+				<th>Message</th>
+			</tr>
+			<tr ng-repeat="item in Referencenumber|filter:search" class="items" style="position:relative;left:500px;top:1000px;"  ng-model="all">
+				<th>
+					<a class="tooltip">{{$index}}</a>
+				</th>
+				<th>{{item.Reference}}</th>
+				<th><textarea  rows="20" cols="150" disabled>{{item.Message}}</textarea></td>
+			</tr>
+	</table>
+	<div ng-if="MessageMongodb=='Mongodb value'" ng-model="Mongodbvalue" style="position:relative;left:500px;top:130px;"><b style="color: Green;">{{Mongodbvalue}}</b></div>
+
+	</div>
+	</td>
+</body>
+</html>

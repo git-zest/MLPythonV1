@@ -1,0 +1,523 @@
+.content-box.content-box-wrapper{
+  background-color: transparent;
+}
+.content-box{
+  box-shadow: none !important;
+}
+
+.ng-region{
+  cursor: pointer;
+}
+
+.ng-ctrl{
+  display:none;
+}
+
+textarea{
+  min-height: 200px;
+  max-height: 200px;
+  height: 200px;
+  margin: 40px 0px;
+}
+
+.field-desc{
+  color: #999;
+  margin: 10px 0 0 30px;
+}
+
+.text-input{
+  width: 100% !important;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+  margin: 10px 0px;
+  border: 0px none;
+  font-size: 20px;
+  text-align: center;
+}
+
+.last input{
+  border-radius: 20px;
+}
+
+.optn{
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #3396d1;
+}
+
+.radfix{
+  padding:0 !important;
+  margin: 0 !important;
+}
+
+.no-padding{
+  padding: 0 !important;
+}
+
+.optn span{
+  color: #3396d1;
+  font-size: 20px;
+  padding: 0 40px;
+  text-decoration: none;
+  outline: 0;
+}
+
+.bel{
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.button.btn-o, .button.btn-blue{
+  border-radius: 8px !important;
+  text-align: center;
+  width: initial;
+  min-width: 150px;
+}
+
+.button.btn-o{
+  background-color: #fff !important;
+  color: #3396d1 !important;
+  box-shadow: none !important;
+  margin:80px 0;
+  border: 1px solid #3396d1 !important;
+}
+.button.btn-blue{
+  background-color: #3396d1 !important;
+  color: #fff !important;
+}
+
+.floating-text{
+  position: absolute;
+  margin-top: 25px;
+  width: 60%;
+  font-size: 16px;
+  text-align:left;
+}
+
+div.qs, .field{
+  width:100%;
+  text-align: center;
+}
+
+.btn-div{
+  text-align: center;
+}
+
+div.qs{
+  background-color: #3396d1;
+  padding: 15px 0;
+  color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin:-20px 0 0 -1px;
+  width: 100.285%;
+  width: calc(100% + 2px);
+}
+
+.qs label{
+  font-size:20px;
+  padding:0 20px;
+}
+
+#form-views.ng-enter,
+#form-views.ng-leave      { position:absolute; left:30px; right:30px;
+  transition: 100ms all ease; -moz-transition: 100ms all ease; -webkit-transition: 100ms all ease;
+}
+
+#form-views{
+  background-color: #fff;
+  border:1px solid #3396d1;
+  border-radius: 20px;
+  width: 100%;
+  position: absolute;
+  top:100%;
+}
+
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+
+.ng-arrow{
+  font-size: 35px;
+  text-align: center;
+  border: 1px solid #3396d1;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  line-height: 50px;
+}
+
+.ion-chevron-right{
+  position: absolute;
+  right: 20px;
+  margin-top: 12px;
+}
+
+.ng-arrow span{
+  position: absolute;
+  top: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+input[type=text],input[type=email] {
+  width:100%;
+}
+
+input[type=radio]{
+  display: none !important;
+}
+
+pre{
+  visibility: hidden;
+  position: absolute;
+}
+
+fieldset {
+  width: 100%;
+  padding: 20px 0;
+  border: none !important;
+}
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input-group input{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+}
+
+.input-group-addon{
+  display: table-cell;
+}
+.input-group-addon:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.input-group-addon {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.input-group-addon {
+  padding: 6px 12px;
+  border:1px solid #3396d1;
+  border-right: 0;
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  background-color: #3396d1;
+}
+
+/* enter animation */
+#form-views.ng-enter            {
+  -webkit-animation: fadeInLeft 0.1s;
+  -moz-animation: fadeInLeft 0.1s;
+  animation: fadeInLeft 0.1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* leave animation */
+#form-views.ng-leave            {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #3396d1;
+  background-color: #fff;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: fadeOutRight 0.1s;
+  -moz-animation: fadeOutRight 0.1s;
+  animation: fadeOutRight 0.1s;
+}
+
+.formdata{
+  font-size: 16px;
+  margin: 20px 0;
+  padding: 0 40px;
+}
+
+.last{
+ border-radius: 20px;
+}
+
+.ion-android-done{
+  display: none;
+}
+
+.error{
+  display: none;
+  color:red;
+  margin-left: 16px;
+}
+
+h2,h3{
+  margin:0 !important;
+  text-align: center;
+  border: 0 !important;
+}
+h2{
+  font-size: 30px !important;
+  top:-70px;
+  line-height: 40px;
+}
+h3{
+  font-size: 20px !important;
+  top:-20px;
+  line-height: 24px !important;
+}
+#form-views{
+  margin-top: 50px;
+}
+.centerfix{
+  display: block;
+}
+.headings,.elgo{
+  display: none;
+}
+
+@media(max-width: 991px){
+  #form-views{
+    position: relative;
+  }
+}
+@media(max-width: 480px){
+  .ion-chevron-right, .findtext{
+    display: none;
+  }
+  .floating-text{
+    width: 40%;
+  }
+  .button.btn-o{
+    position: absolute;
+    margin: 80px 0;
+  }
+  .ion-android-done {
+    display: block;
+  }
+}
+
+/* ANIMATIONS
+============================================================================= */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(200%, 0, 0);
+    transform: translate3d(200%, 0, 0);
+  }
+}
+
+.fadeOutRight {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+}
+
+.animate > span:after {
+  display: none;
+}
+
+@-webkit-keyframes move {
+  0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: 50px 50px;
+ }
+}
+
+
+
+
+/*------>>> Animations <<<-----*/
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-in;
+  -moz-transition: opacity 0.25s ease-in;
+  -o-transition: opacity 0.25s ease-in;
+  -ms-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  transition-delay: 0.25s;
+}
+.fade.in{
+  opacity: 1;
+}
+
+.animate-switch-container {
+  position:relative;
+  overflow: hidden;
+  height: 200px;
+  width: 250px;
+  border: solid 1px black;
+  box-shadow: 6px 6px 15px gray;
+  padding:10px;
+  border-radius:10px;
+
+  background-size: 50px 50px;
+}
+.animate-switch{
+  padding:10px;
+  width: 100%;
+}
+.animate-switch.ng-animate {
+  -webkit-transition:all 0.5s;
+  transition:all 0.5s;
+  position:absolute;
+
+}
+/* hide leaving slide  */
+/* show */
+.animate-switch.ng-leave{
+  left:0;
+}
+/* hide */
+.forward .animate-switch.ng-leave.ng-leave-active{
+  left:-100%;
+}
+.backward .animate-switch.ng-leave.ng-leave-active{
+  left: 100%;
+}
+/* show entering slide  */
+/* hide */
+.forward .animate-switch.ng-enter {
+  left:100%;
+}
+.backward .animate-switch.ng-enter {
+  left:-100%;
+}
+/* show */
+.animate-switch.ng-enter.ng-enter-active {
+  left:0;
+}
+
+
+/*-----------------------------------*/
+/*------>>> Validation <<<-----------*/
+/*-----------------------------------*/
+
+.form-validation input.ng-invalid-maxlength {
+  border:2px solid #D9272D;
+}
+
+
+.length-error {
+  color: #D9272D;
+  display: block;
+  font-size: 12px;
+  opacity: .8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  line-height: 18px;
+  padding: 10px 10px 5px 10px;
+  margin: -25px 0 20px 0;
+  background-color: #E3E3E3;
+  border-radius: 0 0 5px 5px;
+}
+
+.input-error {
+  border: 2px solid #D9272D;
+}
+
+/*-----------------------------------*/
+/*------->>> FORM STYLES <<<---------*/
+/*-----------------------------------*/
+
+.note {
+  display: block;
+  font-size: 12px;
+  opacity: .8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  line-height: 18px;
+}
+
+.note-input {
+  padding: 10px 10px 5px 10px;
+  margin: -25px 0 20px 0;
+  background-color: #E3E3E3;
+  border-radius: 0 0 5px 5px;
+}
+
+.note-input-error, .required-error-banner {
+  background-color: rgba(217, 39, 45, 0.5);
+}
+
+/*-----------------------------------*/
+/*----------->>> HELPERS <<<-------------*/
+/*-----------------------------------*/
+
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
+
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:150px;
+  overflow:auto;
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+  background:yellow;
+  color:black;
+}
+#table-wrapper table thead th .text {
+  position:absolute;
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}

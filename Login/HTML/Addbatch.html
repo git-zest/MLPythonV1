@@ -1,0 +1,91 @@
+<html>
+<!-- top navigation CSS -->
+<head>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animations.css">
+		<link rel="stylesheet" href="css/topnav.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+		<link href="css/animations.css" rel="stylesheet" media="screen"/>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+</head>
+<body >
+<td style="left:10px;top:10px;">
+<title> CIB Tools </title>
+	<div  ng-controller="swiftmsgcontroller">
+		<div class="loader" ng-if="loading">
+			<div class="circle one"></div>
+			<div class="circle two"></div>
+			<div class="circle three"></div>
+		</div>
+	<!--<h1 align = "center"> CIB Tools </h1>-->
+ 	<h1 align = "center"> CIB - One Stop Shop </h1>
+
+	<div class="topnav" id="myTopnav" >
+	<ul>
+	  <li><a href="/SwiftMessageSystem" >Swift Message System</a></li>
+	  <li><a href="/Transaction">Transaction</a></li>
+		<li><a href="/Jiraupload">Jira Uploder</a></li>
+		<li><a href="/Testdata">Test data</a></li>
+		<li><a href="/Livereporting">Live Reporting</a></li>
+		<li><a href="/Batchfile">Batch file</a></li>
+		<li><a href="/UserMgt">VBM - User Management</a></li>
+		<li><a href="/Contact">Contact</a></li>
+	 </ul>
+	 <ul class="innercomments">
+	  <li class="newline"><a  href="/Addbatch">Add Batch</a></li>
+	  <li class="newline"><a  href="">Search/Modify Batch</a></li>
+	  <li class="newline"><a  href="">View Test Scenario</a></li>
+	  <li class="newline"><a  href="">View Batch</a></li>
+	</ul>
+	 </div>
+	 <button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+	<div >
+   <div style="position:absolute;left:500px;top:180px;"><b>Add Batch for Jira</b></div>
+	<button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+	 <input  name="Jira Epic Name" placeholder="Jira Epic Name" style="position:absolute;left:300px;top:220px;" ng-model="batchname" >
+	 <input name="batch date" type="Date" class="datepicker"  placeholder="Batch Date" style="position:absolute;left:500px;top:220px;" ng-model="batchdate">
+	 <form action="/uploadfile" enctype="multipart/form-data" method="POST" style="position:absolute;left:800px;top:220px;">
+	 <div class="inner-wrap"  >
+		 <label><input type="file" id="xlsattachment" name="xlsattachment" accept=".xls,.xlsx"/></label>
+		 <div class="button-section">
+			 <input class="btn btn-primary" type="submit" name="Upload" value="Upload Xls Files"/>
+		 </div>
+	 </div>
+	 </form>
+	 <button class="btn btn-primary" ng-click="upoadfiles()" style="position:absolute;left:350px;top:270px;">Upload</button>
+
+	<button class="btn btn-primary" ng-click="clearfiles()" style="position:absolute;left:450px;top:270px;">Clear Files</button>
+
+	<button class="btn btn-primary" ng-click="displayfile()" style="position:absolute;left:600px;top:270px;">Display Files</button>
+	<div ng-if="MessageError=='Error value'" ng-model="MesageErrortype" style="position:absolute;left:350px;top:330px;"><b style="color: red;">{{MesageErrortype}}</b></div>
+ 	<div ng-if="MessageMongodb=='Data instert'" ng-model="Mongodbvalue" style="position:absolute;left:350px;top:330px;"><b style="color: Green;">{{Mongodbvalue}}</b></div>
+
+	 <div  style="position:absolute;left:400px;top:350px;width: 270px;font:fantasy;font-size: 10px" >
+
+		 <div ng-if="MessageError=='Error value'" ng-model="MesageErrortype" style="position:absolute;left:400px;top:350px;width: 270px;font:fantasy;font-size: 10px"><b style="color: red;">{{MesageErrortype}}</b></div>
+		 <table ng-if="message=='display'" style="position:absolute;left:150px;top:30px;width: 270px;font:fantasy;font-size: 10px" class="table table-Acct">
+		 	<div class="table">
+			    <tbody class="row-fluid">
+					<tr>
+						<th class="span3" style="align-content: center;font-size: 15px; top: 50px;" ></th>
+						<th class="span3" style="align-content: center;font-size: 15px;">Test Scenario</th>
+					</tr>
+					<tr  ng-repeat="admin in filesvl">
+						<th></th>
+						<th><a href="C:\\AmmuMsg\\datatable\\TestScenario\\{{admin.Filename}}" download="{{admin.Filename}}" >{{admin.Filename}}</a></th>
+					</tr>
+					<tr>
+				</tbody>
+			</div>
+
+		 </table>
+
+	</td>
+
+	</div>
+</div>
+</body>
+</html>

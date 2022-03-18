@@ -1,0 +1,144 @@
+<html>
+<!-- top navigation CSS -->
+<head>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animations.css">
+		<link rel="stylesheet" href="css/topnav.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+		<script src="angular-file-saver-master/dist/angular-file-saver.bundle.js"></script>
+		<script src="angular-file-saver-master/dist/angular-file-saver.bundle.min.js"></script>
+		<script src="angular-file-saver-master/dist/angular-file-saver.js"></script>
+		<script src="angular-file-saver-master/dist/angular-file-saver.min.js"></script>
+	  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+		<link href="css/animations.css" rel="stylesheet" media="screen"/>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+</head>
+<body >
+<td style="left:10px;top:10px;">
+<title> VBM Tools </title>
+	<div  ng-controller="swiftmsgcontroller">
+		<div class="loader" ng-if="loading">
+			<div class="circle one"></div>
+			<div class="circle two"></div>
+			<div class="circle three"></div>
+		</div>
+	<!--<h1 align = "center"> CIB Tools </h1>-->
+ 	<h1 class="shine" align = "center"> CIB - One Stop Shop </h1>
+
+	<div class="topnav" id="myTopnav" >
+	<ul>
+	  <li><a href="/SwiftMessageSystem" >Swift Message System</a></li>
+	  <li><a href="/Transaction">Transaction</a></li>
+		<li><a href="/Jiraupload">Jira Uploder</a></li>
+		<li><a href="/Testdata">Test data</a></li>
+		<li><a href="/Livereporting">Live Reporting</a></li>
+		<li><a href="/Batchfile">Batch file</a></li>
+		<li><a href="/UserMgt">VBM - User Management</a></li>
+		<li><a href="/Contact">Contact</a></li>
+	 </ul>
+	 </div>
+	<td>
+		<select ng-model="msgtype" placeholder="Transaction Type" style="position:absolute;left:300px;top:150px;width: 120px;">
+			<option value="Transaction Type" selected>Transaction Type</option>
+		    <option value="ITTA">ITTA</option>
+		    <option value="RTGS">RTGS</option>
+		    <option value="ZAPS">ZAPS</option>
+		    <option value="ITrade">ITrade</option>
+		</select>
+        <select ng-model="subdropdown"  placeholder="Sub Transaction Type" style="position:absolute;left:300px;top:180px;width: 120px;">
+
+        	<option value="Sub Transaction Type">Sub Transaction Type</option>
+		    <option ng-if="msgtype=='ITTA'" value="ITTA">ITTA</option>
+
+		    <option ng-if="msgtype=='ITrade'" value="ITT_MT103">ITT_MT103</option>
+		    <option ng-if="msgtype=='ITrade'" value="ExportLC_MT700">ExportLC_MT700</option>
+
+		    <option ng-if="msgtype=='RTGS'" value="103 Siress">103 Siress</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 Siress to Local">103 Siress to Local</option>
+		    <option ng-if="msgtype=='RTGS'" value="202 Cover inward">202 Cover inward</option>
+		    <option ng-if="msgtype=='RTGS'" value="202 DTROF">202 DTROF</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 Atomatically routed to ZAPS">103 Atomatically routed to ZAPS</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 Delete">103 Delete</option>
+		    <option ng-if="msgtype=='RTGS'" value="202 Manually routed to ZAPS">202 Manually routed to ZAPS</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 Routed to AMH">103 Routed to AMH</option>
+		    <option ng-if="msgtype=='RTGS'" value="PCH Cancel 900">PCH Cancel 900</option>
+		    <option ng-if="msgtype=='RTGS'" value="PCH Cancel910">PCH Cancel910</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 50F field Siress">103 50F field Siress</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 50K/A field Siress">103 50K/A field Siress</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 Credit Locks">103 Credit Locks</option>
+		    <option ng-if="msgtype=='RTGS'" value="103 Debit Locks">103 Debit Locks</option>
+		    <option ng-if="msgtype=='RTGS'" value="202 Inward">202 Inward</option>
+		    <option ng-if="msgtype=='RTGS'" value="202 COV/Outward">202 COV/Outward</option>
+
+		    <option ng-if="msgtype=='ZAPS'" value="101 Transaction">101 Transaction</option>
+			<option ng-if="msgtype=='ZAPS'" value="102 Multiple credits">102 Multiple credits</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Cancellation">103 Cancellation</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Current to local">103 Current to local</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Debit from Local account">103 Debit from Local account</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 DTROF Return">103 DTROF Return</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 DTROF">103 DTROF</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Invalid to valid SAP and 103 Beneficiary charge">103 Invalid to valid SAP and 103 Beneficiary charge</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Shared charge">103 Shared charge</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Siress to Current">103 Siress to Current</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Siress to local">103 Siress to local</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Siress to Vostro">103 Siress to Vostro</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Vostro to local">103 Vostro to local</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Vostro to Siress">103 Vostro to Siress</option>
+		    <option ng-if="msgtype=='ZAPS'" value="200 Transaction">200 Transaction</option>
+		    <option ng-if="msgtype=='ZAPS'" value="202 Cancellation">202 Cancellation</option>
+		    <option ng-if="msgtype=='ZAPS'" value="202 CLS Payment">202 CLS Payment</option>
+		    <option ng-if="msgtype=='ZAPS'" value="202 Cover inward">202 Cover inward</option>
+		    <option ng-if="msgtype=='ZAPS'" value="202 Cover outward">202 Cover outward</option>
+		    <option ng-if="msgtype=='ZAPS'" value="202 Inward">202 Inward</option>
+		    <option ng-if="msgtype=='ZAPS'" value="202 Outward">202 Outward</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Credit locks our charge">103 Credit locks our charge</option>
+		    <option ng-if="msgtype=='ZAPS'" value="103 Vostro Current Debit locks Overdrafts">103 Vostro Current Debit locks Overdrafts</option>
+
+		</select>
+
+
+	</td>
+	<!values based on above dropdown>
+
+	<td>
+	     <tr>
+	    </tr>
+		<tr>
+			<input name="Reference number" ng-change="textChanged()"  placeholder="Reference number" ng-model="RefNum" style="position:absolute;left:450px;top:150px;" required=true/>
+			<input name="Posting Date" placeholder="Posting Date (YYMMDD)" ng-model="PostingDate"  required=true style="position:absolute;left:650px;top:150px;" type="text" maxlength="6"/>
+
+		</tr>
+
+		<tr>
+
+			<input name="Account Number"  placeholder="Account Number" ng-model="Accountnum" required=true style="position:absolute;left:450px;top:180px;" type="number"/>
+			<input name="To Account Number"  placeholder="To Account Number" ng-model="ToAccountnum" ng-show= "(msgtype=='ZAPS' && subdropdown=='103 Siress to Vostro')||(msgtype=='ZAPS' && subdropdown=='103 Vostro to local')||(msgtype=='ZAPS' && subdropdown=='103 Vostro to Siress')||(msgtype=='ZAPS' && subdropdown=='Credit locks or OUR or Invalid SAP')||(msgtype=='ZAPS' && subdropdown=='Vostro Current or Debit locks or Overdrafts')"  required=true style="position:absolute;left:850px;top:180px;" type="number"/>
+			<input name="Currencycode"  placeholder="Currency code" ng-model="Currencycode" required=true  style="position:absolute;left:650px;top:180px;" type="text" maxlength="3" ng-change="upper(Currencycode)"/>
+
+		</tr>
+
+		<tr>
+			<input name="Amount" placeholder="Amount (,)" ng-model="Amount" required=true style="position:absolute;left:450px;top:210px;" type="text"/>
+			<input name="Fee Amount"  placeholder="Fee Amount (,)" ng-model="FeeAmount" required=true style="position:absolute;left:650px;top:210px;" type="text"/>
+		</tr>
+
+	</td>
+	<td>
+	<button type="button"  class="btn btn-primary" ng-click="Generate()" style="position:absolute;left:500px;top:240px;">Generate</button>
+	<button type="button" class="btn btn-primary" ng-click="Clearall()" style="position:absolute;left:600px;top:240px;">Clear</button>
+
+	<button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+
+	<textarea ng-disabled="true" ng-if="Message=='Resulted value'" style="position:absolute;left:100px;top:280px;" rows="16" cols="150" ng-model="Mesagevalue" >{{Messagevalue}} </textarea>
+	<button type="button" ng-if="Message=='Resulted value'" class="btn btn-primary" ng-click="Postmsg()" style="position:absolute;left:1200px;top:550px;">Post Message</button>
+	<div ng-if="MessageError=='Error value'" ng-model="MesageErrortype" style="position:absolute;left:480px;top:280px;"><b style="color: red;">{{MesageErrortype}}</b></div>
+	<div ng-if="MessageMongodb=='Mongodb value'" ng-model="Mongodbvalue" style="position:absolute;left:500px;top:620px;"><b style="color: Green;">{{Mongodbvalue}}</b></div>
+	<div ng-if="MessageMongodb=='DB Error Occurred Please contact system Admin'" ng-model="Mongodbvalue" style="position:absolute;left:500px;top:680px;"><b style="color: RED;">{{Mongodbvalue}}</b></div>
+	<div ng-if="MessageMongodb=='Data insterting Failed Please contact system Admin'" ng-model="Mongodbvalue" style="position:absolute;left:500px;top:680px;"><b style="color: RED;">{{Mongodbvalue}}</b></div>
+	</td>
+	</div>
+	</td>
+</body>
+</html>

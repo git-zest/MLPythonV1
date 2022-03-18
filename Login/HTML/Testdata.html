@@ -1,0 +1,120 @@
+<html>
+<!-- top navigation CSS -->
+<head>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animations.css">
+		<link rel="stylesheet" href="css/topnav.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+	  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+		<link href="css/animations.css" rel="stylesheet" media="screen"/>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+		<link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	 <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
+	 <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	 <script data-require="angular-animate@1.6.*" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+	 <script data-require="angular-touch@1.6.*" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+	 <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+</head>
+<body >
+<td style="left:10px;top:10px;">
+<title> CIB Tools </title>
+	<div  ng-controller="testdatacontroller">
+		<div class="loader" ng-if="loading">
+			<div class="circle one"></div>
+			<div class="circle two"></div>
+			<div class="circle three"></div>
+		</div>
+	<!--<h1 align = "center"> CIB Tools </h1>-->
+ 	<h1 align = "center"> CIB - One Stop Shop </h1>
+
+	<div class="topnav" id="myTopnav" >
+	<ul>
+	  <li><a href="/SwiftMessageSystem" >Swift Message System</a></li>
+	  <li><a href="/Transaction">Transaction</a></li>
+		<li><a href="/Jiraupload">Jira Uploder</a></li>
+		<li><a href="/Testdata">Test data</a></li>
+		<li><a href="/Livereporting">Live Reporting</a></li>
+		<li><a href="/Batchfile">Batch file</a></li>
+		<li><a href="/UserMgt">VBM - User Management</a></li>
+		<li><a href="/Contact">Contact</a></li>
+	</ul>
+	<select ng-model="functionality" placeholder="Functionality" style="position:absolute;left:350px;top:150px;width:120px;height:20px;">
+		<option value="Functionality" selected>Functionality</option>
+		<option value="Creditscenarios">Credit scenario</option>
+		<option value="SAPBS">SAP BS</option>
+	</select>
+<button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+<input type="button" class="btn btn-primary" ng-click="searchchoice()" style="position:absolute;left:500px;top:140px;" value="Search">
+<input type="button" class="btn btn-primary" ng-click="addNewChoice()" style="position:absolute;left:600px;top:140px;" value="Add Data">
+<div ng-if="ErrorMessage=='Error Occurred'" ng-model="Errorvalue" style="position:absolute;left:450px;top:190px;"><b style="color: RED;">{{Errorvalue}}</b></div>
+<div ng-if="ErrorMessage=='created'" ng-model="successvalue" style="position:absolute;left:450px;top:190px;"><b style="color: Green;">{{successvalue}}</b></div>
+		<table  ng-if="Messagetable=='Searchtable' && functionality=='Creditscenarios'" style="position:absolute;left:10px;top:240px;" class="table table-Acct">
+				<tr style="box-shadow: transparent;color:blue">
+					<th >url</th>
+					<th >User Name</th>
+					<th >Password</th>
+					<th >customernumber</th>
+					<th >product</th>
+					<th >pricingoption</th>
+					<th >odlimit</th>
+					<th >status</th>
+					<th >runindicator</th>
+					<th></th>
+				</tr>
+				<tr  data-ng-repeat="field in choiceSet.choices track by $index" class="items" >
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].url" value="i"></input></th>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].username" value="i"></input></th>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].password" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].customernumber" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].product" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].pricingoption" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].odlimit" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].status" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].RunIndicator" value="i"></input></td>
+					<th><button style="width: 75%"  type="button" class="btn btn-default btn-sm" ng-click="addChoice($index)">
+          	<span class="glyphicon glyphicon-plus"></span>
+        	</button>
+					<button style="width: 75%"  type="button" class="btn btn-default btn-sm" ng-click="updateChoice($index)">
+          	<span class="glyphicon glyphicon-repeat"></span>
+        	</button>
+
+					<button style="width: 75%" type="button" class="btn btn-default btn-sm" ng-click="deleteChoice($index)">
+          	<span class="glyphicon glyphicon-minus"></span>
+        	</button></td>
+				</tr>
+		</table>
+		<table  ng-if="Messagetable=='Searchtable' && functionality=='SAPBS'" style="position:absolute;left:10px;top:240px;" class="table table-Acct">
+				<tr style="box-shadow: transparent;color:blue">
+					<th >Product ID</th>
+					<th >Manufacturing ID</th>
+					<th >BP Number</th>
+					<th >Indicator</th>
+					<th >Actions</th>
+					<th></th>
+				</tr>
+				<tr  data-ng-repeat="field in choiceSet.choices track by $index" class="items" >
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].productid" value="i"></input></th>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].manufacturingID" value="i"></input></th>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].customernumber" value="i"></input></td>
+					<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].RunIndicator" value="i"></input></td>
+					<th><a style="width: 75%" ng-click="open()">Transactable</a></td>
+						<th><button style="width: 75%"  type="button" class="btn btn-default btn-sm" ng-click="addChoice($index)">
+	          	<span class="glyphicon glyphicon-plus"></span>
+	        	</button>
+						<button style="width: 75%"  type="button" class="btn btn-default btn-sm" ng-click="updateChoice($index)">
+	          	<span class="glyphicon glyphicon-repeat"></span>
+	        	</button>
+
+						<button style="width: 75%" type="button" class="btn btn-default btn-sm" ng-click="deleteChoice($index)">
+	          	<span class="glyphicon glyphicon-minus"></span>
+	        	</button></td>
+				</tr>
+		</table>
+		
+	</div>
+ </div>
+</body>
+
+</html>

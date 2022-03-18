@@ -1,0 +1,501 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-alpha.5
+* @link https://github.com/tabler/tabler
+  <meta http-equiv="refresh" content="10" />
+* Copyright 2018-2019 The Tabler Authors
+* Copyright 2018-2019 codecalm.net Paweł Kuna
+* Licensed under MIT (https://tabler.io/license)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>Regression Testsuite</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <meta name="msapplication-TileColor" content="#206bc4"/>
+    <meta name="theme-color" content="#206bc4"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="robots" content="noindex,nofollow,noarchive"/>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+    <!-- Libs CSS -->
+
+    <link href="./dist/libs/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="./dist/libs/selectize/dist/css/selectize.css" rel="stylesheet"/>
+    <link href="./dist/libs/fullcalendar/core/main.min.css" rel="stylesheet"/>
+    <link href="./dist/libs/fullcalendar/daygrid/main.min.css" rel="stylesheet"/>
+    <link href="./dist/libs/fullcalendar/timegrid/main.min.css" rel="stylesheet"/>
+    <link href="./dist/libs/fullcalendar/list/main.min.css" rel="stylesheet"/>
+    <link href="./dist/libs/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/>
+    <link href="./dist/libs/nouislider/distribute/nouislider.min.css" rel="stylesheet"/>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css" rel="stylesheet"/>
+    <!-- Tabler Core -->
+    <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
+    <!-- Tabler Plugins -->
+    <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
+    <link href="./dist/css/tabler-payments.min.css" rel="stylesheet"/>
+    <link href="./dist/css/tabler-buttons.min.css" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css" rel="stylesheet"/>
+    <style>
+      body {
+      	display: none;
+      }
+    </style>
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script> 
+  </head>
+  <body class="antialiased" >
+    <div class="page" ng-controller="regressiontask1">
+      <header class="navbar navbar-expand-md navbar-light">
+        <div class="container-xl"  >
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+            <img src="./static/overview.gif" alt="Tabler" class="navbar-brand-image">
+            Business Verification Script
+          </a>
+          <div class="navbar-nav flex-row order-md-last">
+            <div class="nav-item dropdown d-none d-md-flex mr-3">
+              <a href="#" class="nav-link px-0" data-toggle="dropdown" tabindex="-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                  <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                </svg>
+                <span class="badge bg-red"></span>
+
+              </a>
+            </div>
+            <button ng-click='logout()'> Logout </button>
+            <div class="nav-item dropdown">
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  Action
+                </a>
+                <a class="dropdown-item" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                    <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                    <line x1="16" y1="5" x2="19" y2="8" />
+                  </svg>
+                  Another action
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon dropdown-item-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Separated link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="navbar-expand-md">
+        <div class="navbar collapse navbar-collapse navbar-light" id="navbar-menu">
+          <div class="container-xl">
+
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="./index.html" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"/>
+                      <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">
+                    BVF Suite
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+              <form action="." method="get">
+                <div class="input-icon">
+                  <span class="input-icon-addon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"/>
+                      <circle cx="10" cy="10" r="7" />
+                      <line x1="21" y1="21" x2="15" y2="15" />
+                    </svg>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Search…">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="container-xl">
+          <div class="page-header">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Overview
+                </div>
+                <h2 class="page-title">
+                  BVF
+                </h2>
+              </div>
+              <!-- Page title actions -->
+              <div class="col-auto ml-auto d-print-none">
+                <span class="d-none d-sm-inline">
+                  <a class="btn btn-secondary" ng-click='refreshdata()'>
+                    New view
+                  </a>
+                </span>
+                <a href="#" class="btn btn-primary ml-3 d-none d-sm-inline-block" data-toggle="modal" data-target="#modal-report">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Create Data
+                </a>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"></h3>
+            </div>
+            <div class="card-body border-bottom py-3">
+              <div class="d-flex">
+                <div class="text-muted">
+                  Show
+                  <div class="mx-2 d-inline-block">
+                    <input type="text" class="form-control form-control-sm" value="8" size="3">
+                  </div>
+                  entries
+                </div>
+                <div class="ml-auto text-muted">
+                  Search:
+                  <div class="ml-2 d-inline-block">
+                    <input type="text" class="form-control form-control-sm">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table card-table table-vcenter text-nowrap datatable">
+                <thead>
+                  <tr>
+                    <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"></th>
+                    <th>BVF Scenario <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <polyline points="7 8 3 12 7 16" />
+                        <polyline points="17 8 21 12 17 16" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </th>
+                    <th>User Name <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <polyline points="7 8 3 12 7 16" />
+                        <polyline points="17 8 21 12 17 16" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </th>
+                    <th>Password <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <polyline points="7 8 3 12 7 16" />
+                        <polyline points="17 8 21 12 17 16" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </th>
+                    <th>BP/Account Number <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <polyline points="7 8 3 12 7 16" />
+                        <polyline points="17 8 21 12 17 16" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </th>
+                    <th>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ng-repeat="field in choiceSet.choices track by $index">
+                    <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                  <td><a  class="text-reset" >{{choiceSet.choices[$index].scenario}}</a></td>
+                    <td  ng-model="choiceSet.choices[$index].username">
+                      <input disabled=True ng-model="choiceSet.choices[$index].username" />
+                    </td>
+                    <td ng-model="choiceSet.choices[$index].password">
+                        <input disabled=True ng-model="choiceSet.choices[$index].password" />
+                    </td>
+                    <td ng-model="choiceSet.choices[$index].bpaccnumber">
+                      <input disabled=True ng-model="choiceSet.choices[$index].bpaccnumber" />
+                    </td>
+                    <td class="text-right">
+                      <span class="dropdown ml-1">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown">Actions</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <a class="dropdown-item" ng-click='deletebuild($index)'>
+                            Delete
+                          </a>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-updatereport"   ng-click='updatejob($index)'>
+                            Update
+                          </a>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-updatereport"   ng-click='viewjob($index)'>
+                            View
+                          </a>
+                        </div>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer d-flex align-items-center">
+              <p class="m-0 text-muted"> <span></span>  <span></span>  <span></span> </p>
+              <ul class="pagination m-0 ml-auto">
+                <li class="page-item"><a class="page-link" href="#"> </a></li>
+                <li class="page-item"><a class="page-link" href="#"></a></li>
+                <li class="page-item"><a class="page-link" href="#"></a></li>
+                <li class="page-item"><a class="page-link" href="#"></a></li>
+                <li class="page-item"><a class="page-link" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-blur" id="modal-file" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="regressiondownload">
+      <div class="modal-dialog modal-lg" role="document"  >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{reportjobname}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3">
+              <a href="#" class="btn btn-outline-primary btn-block" ng-click="viewreport()">
+                View Report
+              </a>
+            </div>
+            <div class="table-responsive">
+              <table class="table card-table table-vcenter text-nowrap datatable">
+                <thead>
+                  <tr>
+                    <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"></th>
+                    <th>Regression Name <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <polyline points="7 8 3 12 7 16" />
+                        <polyline points="17 8 21 12 17 16" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </th>
+                    <th>Download <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <polyline points="7 8 3 12 7 16" />
+                        <polyline points="17 8 21 12 17 16" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ng-repeat="field in choiceSet.choices track by $index">
+                    <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                    <td><a  class="text-reset" tabindex="-1">{{choiceSet.choices[$index].foldername}}</a></td>
+                    <td><div class="col-6 col-sm-4 col-md-2 col-xl mb-3">
+                      <a target="_self" download="{{choiceSet.choices[$index].foldername}}" href="{{fullurlpath}}" class="btn btn-outline-primary btn-block" ng-click="downloadreport($index)">
+                        D
+                      </a>
+                    </div>
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-link link-secondary" data-dismiss="modal">
+              Cancel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="modal modal-blur" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="regressiontask">
+      <div class="modal-dialog modal-lg" role="document"  >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Scenario Name</label>
+              <input type="text" class="form-control" name="example-text-input" placeholder="Your report name" ng-model="scenario">
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label">Username</label>
+                  <input type="password" class="form-control" ng-model="username">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control" ng-model="password">
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">BP/Account Number</label>
+              <input type="password" class="form-control" name="example-text-input" placeholder="Your report name" ng-model="bpaccnumber">
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label" ng-if="Message=='created'">{{Messagevalue}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-link link-secondary" data-dismiss="modal">
+              Cancel
+            </a>
+            <a class="btn btn-primary ml-auto" data-dismiss="modal" ng-click="addbuild()">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+              Create Regression Task
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-blur" id="modal-updatereport" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="regressiontask1">
+    <div class="modal-dialog modal-lg" role="document"  >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <label class="form-label" ng-model="idnumber">{{idnumber}} </label>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Scenario Name</label>
+            <input type="text" class="form-control" name="example-text-input" placeholder="Your report name" ng-model="updatescenarioname">
+          </div>
+          <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" ng-model="updateusername">
+                <input type="checkbox" ng-click="myFunctionUsername($index)">Show USERNAME
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="text" class="form-control" ng-model="updatepassword">
+                <input type="checkbox" ng-click="myFunctionPassword($index)">Show Password
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">BP/Account Number</label>
+            <input type="text" class="form-control" name="example-text-input" placeholder="Your report name" ng-model="updatebpaccnumber">
+            <input type="checkbox" ng-click="myFunctionBpno($index)">Show BP/ACC NO
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="form-label" ng-if="Message=='created'">{{Messagevalue}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="form-label" ng-if="Message=='updated'">{{Messagevalue}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-link link-secondary" data-dismiss="modal">
+            Cancel
+          </a>
+          <a class="btn btn-primary ml-auto" data-dismiss="modal" ng-click="updatebuild($index)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Update BVF
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    <!-- Libs JS -->
+    <script src="./dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./dist/libs/jquery/dist/jquery.slim.min.js"></script>
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js"></script>
+    <script>
+      document.body.style.display = "block"
+    </script>
+  </body>
+</html>

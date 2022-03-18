@@ -1,0 +1,68 @@
+<html>
+<!-- top navigation CSS -->
+<head>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animations.css">
+		<link rel="stylesheet" href="css/topnav.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+	  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+		<link href="css/animations.css" rel="stylesheet" media="screen"/>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
+   <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+   <script data-require="angular-animate@1.6.*" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+   <script data-require="angular-touch@1.6.*" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+   <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+</head>
+<body >
+<td style="left:10px;top:10px;">
+<title> CIB Tools </title>
+<div>
+<div class="modal-header">
+  <h3>Transactions
+
+    <div ng-if="ErrorMessage=='Error Occurred'" ng-model="Errorvalue" ><b style="color: RED;">{{Errorvalue}}</b></div>
+    <div ng-if="ErrorMessage=='created'" ng-model="successvalue"><b style="color: Green;">{{successvalue}}</b></div>
+</h3>
+</div>
+<button class="btn btn-primary" ng-click="search()">Search</button>
+<button class="btn btn-primary" ng-click="addNewChoice()">Add Transaction</button>
+<button type="button" class="btn btn-primary" ng-click="logout()" style="position:absolute;left:1200px;top:10px;">Logout</button>
+
+
+<table  ng-if="Messagetable=='Searchtable'"  class="table table-Acct">
+  <tr style="box-shadow: transparent;color:blue">
+    <th >Transaction description</th>
+    <th >Transaction code</th>
+		<th >Accountnumber</th>
+		<th >Amount</th>
+    <th >Medium</th>
+    <th >Sending Application</th>
+    <th>Action</th>
+  </tr>
+  <tr  data-ng-repeat="field in choiceSet.choices track by $index" class="items" >
+    	<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].transactiondescription" value="i"></input></th>
+      <th><input style="width: 75%" ng-model=" choiceSet.choices[$index].transactioncode" value="i"></input></th>
+			<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].accountnumber" value="i"></input></th>
+			<th><input style="width: 75%" ng-model=" choiceSet.choices[$index].amount" value="i"></input></th>
+      <th><input style="width: 75%" ng-model=" choiceSet.choices[$index].medium" value="i"></input></th>
+      <th><input style="width: 75%" ng-model=" choiceSet.choices[$index].sendingapplication" value="i"></input></th>
+      <th><button style="width: 75%"  type="button" class="btn btn-default btn-sm" ng-click="addChoices($index)">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      <button style="width: 75%" type="button" class="btn btn-default btn-sm" ng-click="deleteChoice($index)">
+        <span class="glyphicon glyphicon-minus"></span>
+      </button></th>
+  </tr>
+</table>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()" >OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+</div>
+</td>
+</body>
+</html>
